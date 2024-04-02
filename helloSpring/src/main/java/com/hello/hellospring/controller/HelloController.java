@@ -3,6 +3,7 @@ package com.hello.hellospring.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 // 이는 컨트롤러로 지정한다.
 @Controller
@@ -16,5 +17,11 @@ public class HelloController {
 		// 마지막으로 viewResolver가 templates에 있는 파일명을 찾아 렌더링해준다.(확장자는 생략)
 		// `resources:templates/` + {ViewName} + `.html`
 		return "hello";
+	}
+	
+	@GetMapping("hello-mvc")
+	public String helloMvc(@RequestParam("name") String name, Model model) {
+		model.addAttribute("name", name);
+		return "hello-template";
 	}
 }
