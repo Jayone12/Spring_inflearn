@@ -8,7 +8,7 @@ import com.hello.hellospring.service.MemberService;
 @Controller
 public class MemberController {
 
-	private final MemberService memberService;
+	private MemberService memberService;
 	
 	@Autowired
 	public MemberController(MemberService memberService) {
